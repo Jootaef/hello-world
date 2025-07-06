@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Hello World JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .test-result {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .test-error {
+            background: #ffebee;
+            border: 1px solid #f44336;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        button {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Hello World JavaScript - Test Page</h1>
+        <p>This page tests the basic functionality of the Hello World program.</p>
+        
+        <div id="test-results">
+            <h3>Test Results:</h3>
+            <div id="results-container"></div>
+        </div>
+        
+        <div>
+            <button onclick="runTests()">Run All Tests</button>
+            <button onclick="testConsole()">Test Console Output</button>
+            <button onclick="clearResults()">Clear Results</button>
+        </div>
+    </div>
+
+    <script src="hello-world.js"></script>
+    <script>
+        function runTests() {
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = '';
+            
+            // Test 1: Check if functions exist
+            try {
+                if (typeof getCurrentDateTime === 'function') {
+                    addResult('✅ getCurrentDateTime function exists', 'success');
+                } else {
+                    addResult('❌ getCurrentDateTime function not found', 'error');
+                }
+            } catch (e) {
+                addResult('❌ Error testing getCurrentDateTime: ' + e.message, 'error');
+            }
+            
+            // Test 2: Check if greetings array exists
+            try {
+                if (typeof greetings !== 'undefined' && greetings.length > 0) {
+                    addResult('✅ Greetings array exists with ' + greetings.length + ' items', 'success');
+                } else {
+                    addResult('❌ Greetings array not found or empty', 'error');
+                }
+            } catch (e) {
+                addResult('❌ Error testing greetings array: ' + e.message, 'error');
+            }
+            
+            // Test 3: Test getRandomGreeting function
+            try {
+                const greeting = getRandomGreeting();
+                if (greeting && typeof greeting === 'string') {
+                    addResult('✅ getRandomGreeting returns: ' + greeting, 'success');
+                } else {
+                    addResult('❌ getRandomGreeting returned invalid result', 'error');
+                }
+            } catch (e) {
+                addResult('❌ Error testing getRandomGreeting: ' + e.message, 'error');
+            }
+            
+            // Test 4: Test current date/time
+            try {
+                const dateTime = getCurrentDateTime();
+                if (dateTime && typeof dateTime === 'string') {
+                    addResult('✅ Current date/time: ' + dateTime, 'success');
+                } else {
+                    addResult('❌ getCurrentDateTime returned invalid result', 'error');
+                }
+            } catch (e) {
+                addResult('❌ Error testing getCurrentDateTime: ' + e.message, 'error');
+            }
+            
+            addResult('🎉 All tests completed!', 'success');
+        }
+        
+        function testConsole() {
+            const resultsContainer = document.getElementById('results-container');
+            addResult('📝 Testing console output...', 'success');
+            
+            // Create a mock console.log to capture output
+            const originalLog = console.log;
+            let capturedOutput = '';
+            console.log = function(...args) {
+                capturedOutput += args.join(' ') + '\n';
+                originalLog.apply(console, args);
+            };
+            
+            // Run the console function
+            runInConsole();
+            
+            // Restore original console.log
+            console.log = originalLog;
+            
+            if (capturedOutput.includes('Hello World')) {
+                addResult('✅ Console output test passed', 'success');
+            } else {
+                addResult('❌ Console output test failed', 'error');
+            }
+        }
+        
+        function addResult(message, type) {
+            const resultsContainer = document.getElementById('results-container');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = type === 'success' ? 'test-result' : 'test-error';
+            resultDiv.textContent = message;
+            resultsContainer.appendChild(resultDiv);
+        }
+        
+        function clearResults() {
+            document.getElementById('results-container').innerHTML = '';
+        }
+        
+        // Auto-run tests when page loads
+        window.onload = function() {
+            setTimeout(runTests, 500);
+        };
+    </script>
+</body>
+</html> 

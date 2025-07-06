@@ -1,0 +1,31 @@
+{
+  "name": "hello-world-javascript",
+  "version": "1.0.0",
+  "description": "A personalized Hello World program in JavaScript for CSE310 Software Engineering course",
+  "main": "hello-world.js",
+  "scripts": {
+    "start": "node hello-world.js",
+    "serve": "python -m http.server 8000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "hello-world",
+    "javascript",
+    "cse310",
+    "byu-pathway",
+    "software-engineering"
+  ],
+  "author": "Jaydan",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/[your-username]/hello-world-javascript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/[your-username]/hello-world-javascript/issues"
+  },
+  "homepage": "https://github.com/[your-username]/hello-world-javascript#readme"
+} 
