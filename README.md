@@ -8,7 +8,7 @@ This software is an interactive web application that displays "Hello World" gree
 
 My purpose for creating this software was to practice JavaScript programming fundamentals while building a user-friendly web application that showcases both backend logic and frontend presentation. This project helps me understand how different programming concepts work together to create a complete software solution.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/Sm7ohhF_EG8)
 
 ## Development Environment
 
@@ -17,13 +17,3 @@ I used Visual Studio Code as my primary integrated development environment (IDE)
 For version control and code management, I utilized Git and GitHub to track changes and maintain a professional development workflow. This setup allows for proper code organization and collaboration practices.
 
 The programming language I used is JavaScript (ES6+), which is a versatile and powerful language for web development. JavaScript allows for both client-side and server-side programming, making it an excellent choice for creating interactive web applications. I specifically used modern JavaScript features like template literals, arrow functions, and const/let declarations to write clean, maintainable code.
-
-## Useful Websites
-
-- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [W3Schools - JavaScript Tutorial](https://www.w3schools.com/js/)
-- [JavaScript.info - Modern JavaScript Tutorial](https://javascript.info/)
-- [GitHub Documentation](https://docs.github.com/)
-- [Visual Studio Code Documentation](https://code.visualstudio.com/docs)
-- [HTML5 Reference](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [CSS3 Reference](https://developer.mozilla.org/en-US/docs/Web/CSS)
